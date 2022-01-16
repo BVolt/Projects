@@ -1,0 +1,39 @@
+body{
+    font-family: sans-serif;
+    padding: 0px;
+    margin: 0px;
+    background: linear-gradient(to right, teal, rgb(0, 255, 200), #22254b);
+}
+
+
+.auth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.auth .card{
+  width: 300px;
+}
+
+.btn-dark{
+  margin: 6px;
+}
+
+.page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400;
+}
+
+.page-child{
+  display: inline-block;
+}
+
+.browse-options{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
