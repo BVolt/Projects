@@ -1,11 +1,6 @@
-setLoading and error states
-notification for list adittion timeout function
-change emblem at tab
-consolidate files
-comment all code
+//Study
+contexts
+Promises
 
-styles{    
-    landing page ()
-    Detailed description
-    footer with accredidation
-}
+good read me 
+deploy on firebase

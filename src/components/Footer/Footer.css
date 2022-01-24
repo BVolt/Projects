@@ -1,0 +1,26 @@
+/* footer styles */
+
+.footer{
+    background-color: #333;
+    padding-top: 1rem;
+    width: 100%;
+    color: white;
+    text-align: center;
+    justify-content: space-between;
+}
+
+@media screen and (min-width:500px){
+    .footer{
+        padding-top: 3rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+.footer img{
+    width: 30px;
+}
+
+.list.unstyled{
+    text-align: left;
+}

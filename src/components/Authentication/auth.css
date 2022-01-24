@@ -1,0 +1,21 @@
+/* Style for all authorization pages */
+
+.auth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+  
+.auth .auth-form{
+  background-color:white;
+  width: 300px;
+  padding: 25px;
+  border-radius: 1rem;
+}
+
+.auth-inputs{
+  border-radius: 10px; 
+  border: 1px solid ; 
+  width: 100%;
+}

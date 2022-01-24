@@ -1,20 +1,23 @@
-import React, {useRef, useState} from 'react'
-import {Form, Button, Card, Alert, Container} from 'react-bootstrap'
-import {useAuth} from './Authorization'
+import React, {useContext,useRef, useState} from 'react'
+import {Button, Alert} from 'react-bootstrap'
+import {Authorization} from './Authorization'
 import { Link, useNavigate } from "react-router-dom"
+import './auth.css'
 
+//This component is our update page.
 export function Update() {
-    const emailRef = useRef()
-    const passwordRef = useRef()
-    const passwordConfirmRef = useRef()
-    const {currentUser, updateEmail, updatePassword} = useAuth()
+    const email = useRef()
+    const password = useRef()
+    const passwordConfirm = useRef()
+    const {currentUser, updateEmail, updatePassword} = useContext(Authorization)
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
     const history = useNavigate()
 
+  //On sumbit change the values of the users email and/or password using our authorization context
  function handleSubmit(e) {
     e.preventDefault()
-    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+    if (password.current.value !== passwordConfirm.current.value) {
       return setError("Passwords do not match")
     }
 
@@ -22,11 +25,11 @@ export function Update() {
     setLoading(true)
     setError("")
     
-    if(emailRef.current.value !== currentUser.email) {
-        promises.push(updateEmail(emailRef.current.value))
+    if(email.current.value !== currentUser.email) {
+        promises.push(updateEmail(email.current.value))
     }
-    if(passwordRef.current.value !== currentUser.email) {
-        promises.push(updatePassword(passwordRef.current.value))
+    if(password.current.value !== currentUser.email) {
+        promises.push(updatePassword(password.current.value))
     }
 
     Promise.all(promises).then(()=>{
@@ -38,37 +41,28 @@ export function Update() {
     })
   }
 
+  //Return Jsx for form structure.
   return (
     <>
       <div className="auth">
-      <Card>
-        <Card.Body>
+        <div className="auth-form">
           <h2 className="text-center mb-4">Update Profile</h2>
           {error && <Alert variant="danger">{error}</Alert>}
-          <Form onSubmit={handleSubmit}>
-            <Form.Group id="email">
-              <Form.Label>Email</Form.Label>
-              <Form.Control type="email" ref={emailRef} required defaultValue={currentUser.email}/>
-            </Form.Group>
-            <Form.Group id="password">
-              <Form.Label>Password</Form.Label>
-              <Form.Control type="password" ref={passwordRef} required
-              placeholder="Leave blank to keep the same" />
-            </Form.Group>
-            <Form.Group id="password-confirm">
-              <Form.Label>Password Confirmation</Form.Label>
-              <Form.Control type="password" ref={passwordConfirmRef} required 
-              placeholder="Leave blank to keep the same" />
-            </Form.Group>
+          <form onSubmit={handleSubmit}>
+            <label>Email</label>
+            <input className="auth-inputs" type="email" ref={email} required defaultValue={currentUser.email}/>
+            <label>Password</label>
+            <input className="auth-inputs" name="pass" type="password" ref={password} required/>
+            <label>Password Confirmation</label>
+            <input className="auth-inputs" name="pass-con" type="password" ref={passwordConfirm} required/>
             <Button disabled={loading} className="w-100 btn-dark" type="submit">
               Update
             </Button>
-          </Form>
+          </form>
           <div className="w-100 text-center mt-2">
             <Link to="/">Cancel</Link>
           </div>
-        </Card.Body>
-      </Card>
+        </div>
       </div>
     </>
   )

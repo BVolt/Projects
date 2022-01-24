@@ -1,0 +1,80 @@
+/*browse*/
+.browse-options{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.search{
+  font-size: 1.2rem;
+  border: 2px solid black;
+  border-radius: 50px;
+  background-color: white;
+  padding: 0.5rem;
+}
+
+.browse-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.page-increment {
+  display: flex;
+  justify-content: center;
+}
+
+.increment-card{
+  display: flex;
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 10vw;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page-change{
+  background-color:black;
+  color:white;
+  border: none;
+  border-radius: 30%;
+  width: 20px;
+  height: 25px;
+}
+
+
+/*watch list empty page*/
+.empty-list{
+  color: white;
+  text-align: center;
+  background-color: #333;
+}
+
+.empty-list h1{
+  font-size: 50px;
+}
+
+.empty-list a{
+  text-decoration: none;
+  color:white;
+}
+
+.empty-list a:hover{
+  color:black;
+  background-color: white;
+}
+
+
+/* loading styles*/
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+}
+
+.loading img{
+  width: 50px;
+  display: block;
+}

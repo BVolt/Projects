@@ -1,0 +1,25 @@
+.movie{
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.1);
+    margin: 1rem;
+    width: 400px;
+    overflow: hidden;
+    text-align: center;
+  }
+  
+  .movie img{
+    max-width: 100%;
+  }
+  
+  .movie-info{
+    padding: 1rem;
+  }
+  
+  .movie-info p button{
+    background: transparent;
+    border-color: transparent;
+    text-transform:capitalize;
+    color: blue;
+    cursor: pointer;
+  }

@@ -1,9 +1,10 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import {Route, Navigate} from 'react-router-dom'
-import {useAuth} from './Authentication/Authorization'
+import {Authorization} from './Authentication/Authorization'
 
+//Determines if there is a current user to be able to use private route
 const PrivateRoute = ({children}) => {
-    const {currentUser} = useAuth()
+    const {currentUser} = useContext(Authorization)
 
     return currentUser ? children : <Navigate to="/Login"/>
 }

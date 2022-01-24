@@ -1,71 +1,60 @@
-import React, {useRef, useState} from 'react'
-import {Form, Button, Card, Alert, Container} from 'react-bootstrap'
-import firebase from 'firebase/compat/app'
-import {useAuth} from './Authorization'
-import {doc, setDoc} from "firebase/firestore"
+import React, {useContext, useRef, useState} from 'react'
+import {Button, Alert} from 'react-bootstrap'
+import {Authorization} from './Authorization'
 import { Link, useNavigate } from "react-router-dom"
+import './auth.css'
 
+//In the sign up function that holds our sign up page
 export function Signup() {
-  const emailRef = useRef()
-  const passwordRef = useRef()
-  const passwordConfirmRef = useRef()
-  const { signup, currentUser } = useAuth()
+  const email = useRef()
+  const password = useRef()
+  const passwordConfirm = useRef()
+  const { signup} = useContext(Authorization)
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const history = useNavigate()
-  const database = firebase.firestore();
 
+  //On submit create a new user with given inputs using our authorization context.
   async function handleSubmit(e) {
     e.preventDefault()
 
-    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+    if (password.current.value !== passwordConfirm.current.value) {
       return setError("Passwords do not match")
     }
     try {
       setError("")
       setLoading(true)
-      await signup(emailRef.current.value, passwordRef.current.value)  
-      await setDoc(doc(database, "Lists",`${currentUser.email}`),{
-        watchList: []
-      })
+      await signup(email.current.value, password.current.value)  
       history("/")
     } catch {
       setError("Failed to sign up")
     }
-
     setLoading(false)
   }
 
+  //Return Jsx for form structure.
   return (
     <>
       <div className="auth">
-      <Card>
-        <Card.Body>
+        <div className="auth-form">
           <h2 className="text-center mb-4">Sign Up</h2>
           {error && <Alert variant="danger">{error}</Alert>}
-          <Form onSubmit={handleSubmit}>
-            <Form.Group id="email">
-              <Form.Label>Email</Form.Label>
-              <Form.Control type="email" ref={emailRef} required />
-            </Form.Group>
-            <Form.Group id="password">
-              <Form.Label>Password</Form.Label>
-              <Form.Control type="password" ref={passwordRef} required />
-            </Form.Group>
-            <Form.Group id="password-confirm">
-              <Form.Label>Password Confirmation</Form.Label>
-              <Form.Control type="password" ref={passwordConfirmRef} required />
-            </Form.Group>
+          <form onSubmit={handleSubmit}>
+            <label>Email</label>
+            <input className="auth-inputs" type="email" ref={email} required />
+            <label>Password</label>
+            <input className="auth-inputs" name="pass" type="password" ref={password} required />
+            <label>Password Confirmation</label>
+            <input className="auth-inputs" name="pass-con" type="password" ref={passwordConfirm} required />
             <Button disabled={loading} className="w-100 btn-dark" type="submit">
               Sign Up
             </Button>
-          </Form>
+          </form>
           <div className="w-100 text-center mt-2">
             Already have an account? <Link to="/Login">Log In</Link>
           </div>
-        </Card.Body>
-      </Card>
-    </div>
+        </div>
+      </div>
     </>
   )
 }
