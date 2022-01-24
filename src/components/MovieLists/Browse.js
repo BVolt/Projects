@@ -1,7 +1,7 @@
 import React, {useContext, useState, useEffect, useRef, useReducer, useCallback} from 'react'
 import Movie from '../Movie/Movie'
 import './MovieList.css'
-import firebase from 'firebase/compat/app'
+import firebase from 'firebase/app'
 import {Authorization} from '../Authentication/Authorization'
 import {Button, Alert} from 'react-bootstrap'
 

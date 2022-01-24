@@ -1,5 +1,5 @@
 import React, {useContext, useState, useEffect, useRef} from 'react'
-import firebase from 'firebase/compat/app'
+import firebase from 'firebase/app'
 import Movie from '../Movie/Movie'
 import './MovieList.css'
 import {Authorization} from '../Authentication/Authorization'
