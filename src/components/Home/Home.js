@@ -22,10 +22,7 @@ const Home = () => {
                 <img className="home-image" src={watchSnap} />
             </div>
             <div className="home-card">
-                <p>In this Web application, you can browse from a selection of movies then add movies that interest you to your personal watch list.
-                    Just sign up with an email address and you are ready to go! Already have an account? Log in and 
-                    get started building your watch list.
-                    If you do not desire an account and would like to use the site for demonstration purposes then log in with the following credentials:
+                <p>Watch List is for demonstration purposes only and is not for meant for any commercial uses. All movie data is fetched from an external API and all credit for such information goes to The Movie Database. In this application, you can browse from a selection of movies then add movies that interest you to your personal watch list. To use the app features an account is need and a test account is provided below. If you would like to create an account to test authentication functionality, then I recommend using either a temporarily generated or made up email. If you decide to use your own personal email you do so at your own risk as data privacy is handled by the third party database firebase and I as the owner of this application can not ensure the security of firebase.
                 </p>
                 <p>Email: user@test.com</p>
                 <p>Pass: 123456</p>

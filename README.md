@@ -4,7 +4,7 @@ This Project is made with ReactJs and it allows users to build a watch list from
 
 ## Demonstration Purposes Only
 
-This application is meant to demonstrate my technical skill level and is not for profit or any commercial purposes.
+This application is meant to demonstrate my technical skill level and is not for profit or any commercial purposes. If you are cloning the repository and running locally then use npm install to fetch necessary dependancies. I recommend using the test account provided in the homepage when running this application. If you would like to test login authentication then create an account with a temporary or fake email address as I cannot ensure the security of firebase when handling your private emails.
 
 ## Api Credit
 
