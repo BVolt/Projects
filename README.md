@@ -11,10 +11,10 @@ This application is meant to demonstrate my technical skill level and is not for
 An external API is used in this project known as The Movie Database(TMDB) and all credit for movie data goes to TMDB.
 
 ## Notable Features
-*Login Authentication
-*Private Routing / Conditional rendering
-*Organized display of fetched API data
-*Database Storage related to user decisions using firebase firestore
+* Login Authentication
+* Private Routing / Conditional rendering
+* Organized display of fetched API data
+* Database Storage related to user decisions using firebase firestore
 
 ## React 
 
