@@ -27,8 +27,8 @@ const Home = () => {
                     get started building your watch list.
                     If you do not desire an account and would like to use the site for demonstration purposes then log in with the following credentials:
                 </p>
-                <p>Email: b@b.com</p>
-                <p>Pass: 111111</p>
+                <p>Email: user@test.com</p>
+                <p>Pass: 123456</p>
             </div>
             {currentUser ? 
                 <div className="home-buttons">

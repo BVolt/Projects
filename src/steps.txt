@@ -1,6 +1,0 @@
-//Study
-contexts
-Promises
-
-good read me 
-deploy on firebase

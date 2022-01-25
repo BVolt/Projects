@@ -99,6 +99,7 @@ const Browse = () => {
     }])
     
     try{
+        console.log(docRef)
         setError("")
         const docRef= await firebase
         .firestore()
