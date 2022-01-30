@@ -9,7 +9,7 @@ export function Update() {
     const email = useRef()
     const password = useRef()
     const passwordConfirm = useRef()
-    const {currentUser, updateEmail, updatePassword} = useContext(Authorization)
+    const {currentUser, updateEmail, updatePassword, deleteAccount} = useContext(Authorization)
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
     const history = useNavigate()
@@ -41,6 +41,10 @@ export function Update() {
     })
   }
 
+  // function deleteAcc(){
+
+  // }
+
   //Return Jsx for form structure.
   return (
     <>
@@ -60,6 +64,9 @@ export function Update() {
             </Button>
           </form>
           <div className="w-100 text-center mt-2">
+            {/* <Button disabled={loading} className="w-100 btn-danger" onClick={deleteAcc}>
+              Delete Profile
+            </Button> */}
             <Link to="/">Cancel</Link>
           </div>
         </div>

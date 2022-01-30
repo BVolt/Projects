@@ -29,6 +29,9 @@ export function AuthorityProv({ children }) {
   function updatePassword(password) {
     return currentUser.updatePassword(password)
   }
+  function deleteAccount(){
+    return currentUser.delete()
+  }
 
   //Upon loading of the component we use a firebase function to keep our user logged in at all times.
   useEffect(() => {

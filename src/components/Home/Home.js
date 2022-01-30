@@ -22,10 +22,15 @@ const Home = () => {
                 <img className="home-image" src={watchSnap} />
             </div>
             <div className="home-card">
-                <p>Watch List is for demonstration purposes only and is not for meant for any commercial uses. All movie data is fetched from an external API and all credit for such information goes to The Movie Database. In this application, you can browse from a selection of movies then add movies that interest you to your personal watch list. To use the app features an account is need and a test account is provided below. If you would like to create an account to test authentication functionality, then I recommend using either a temporarily generated or made up email. If you decide to use your own personal email you do so at your own risk as data privacy is handled by the third party database firebase and I as the owner of this application can not ensure the security of firebase.
-                </p>
-                <p>Email: user@test.com</p>
-                <p>Pass: 123456</p>
+                <h3>Description</h3>
+                    <p>In this application, you can browse from a selection of movies and view their posters, titles, and descriptions. Then the user may create a watch list from the selection. To use these features create an account or use the test account below. </p>
+                <h3>Qualifications</h3>
+                <p>Watch List is for demonstration purposes only and is not for meant for any commercial uses. I cannot gauruntee the safety of Google's firebase when handling personal emails; therefore, my recommendation if testing authentication functionality is to use either a temporarily generated or made up email.</p>
+                <h3>API Credit</h3>
+                <p>All movie data is fetched from an external API and all credit for such information goes to The Movie Database.</p>
+                <h3>Test Account</h3>
+                <h5>Email: user@test.com</h5>
+                <h5>Pass: 123456</h5>
             </div>
             {currentUser ? 
                 <div className="home-buttons">

@@ -30,9 +30,12 @@
     padding: 30px;
     max-width: 900px;
     text-align: left;
-    text-indent: 40px;;
     border-radius: 1rem;
     margin: 25px;
+}
+
+.home-card p{
+    text-indent: 40px;
 }
 
 
