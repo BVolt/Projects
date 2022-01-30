@@ -118,6 +118,9 @@ const Browse = () => {
         }, 3000)
     }catch(e){
       setError("Failed to add movie")
+      setTimeout(()=>{
+        setError("")
+      }, 3000)
       }
 }
 
