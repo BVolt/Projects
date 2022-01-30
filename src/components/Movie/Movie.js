@@ -8,7 +8,7 @@ const IMG_API = "https://image.tmdb.org/t/p/w1280"
 //This component is for our individual movies
 const Movie = ({id, title, poster_path, overview, listType, addTo, remove}) => {
     const [readMore, setRead] = useState(false);
-    
+
     //Returns individual movie component
     return (
         <div className="movie">

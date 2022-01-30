@@ -5,11 +5,9 @@ import './MovieList.css'
 import {Authorization} from '../Authentication/Authorization'
 import {Alert} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
-import Browse from './Browse'
 
 //This component displays the current users watch list
 const MyList = () => {
-    const watchList = useRef([]) 
     const {currentUser} = useContext(Authorization)
     const [movies, setMovies] = useState([])
     const [loading, setLoading] = useState(false)
@@ -23,7 +21,23 @@ const MyList = () => {
       setLoading(true) 
       try{
         const docSnap = await docRef.get()
-        setMovies(docSnap.data().watchList)
+        const idArray= docSnap.data().watchList
+        await idArray.map(movie=>{
+          fetch(`https://api.themoviedb.org/3/movie/${movie}?api_key=5110138151f5d7b0b102331be17da8fd&language=en-US&include_adult=false`)
+          .then(res=>res.json())
+          .then(data=>{
+            setMovies((currMovies)=>{ 
+              if (currMovies.some(movie=> movie.id === data.id))
+                return currMovies 
+              else {
+                return [...currMovies, {
+                id: data.id,
+                title: data.title,
+                poster_path: data.poster_path,
+                overview: data.overview
+            }]}}) 
+          })
+        })
         setLoading(false) 
       }catch{
         setError("Failed to fetch watch list")
@@ -33,23 +47,21 @@ const MyList = () => {
 
     //This function removes a movie from the current watch list
     const remove= async({id}) => {  
-      watchList.current = movies
-      const newList = watchList.current.filter((movie)=> movie.id !== id)
-      watchList.current = newList
+      const newList = movies.filter((movie)=> movie.id !== id)
       setMovies(newList)
       
       setError("")
-      setLoading(true)
+      setLoading(true) 
       try{
         const docRef= await firebase
         .firestore()
         .collection("Lists")
         .doc(`${currentUser.email}`)
-        .set({watchList:[...watchList.current] 
+        .set({watchList:newList.map(movie=>movie.id) 
         });
         setLoading(false)
         }catch(e){
-            setError("Failed to update porfile")
+            setError("Failed to remove")
             setLoading (false)
         }
 

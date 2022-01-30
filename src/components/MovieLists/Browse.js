@@ -82,8 +82,8 @@ const Browse = () => {
   }
 
   //adds the movies that is clicked to the current users watch list
-  const addTo = async ({ id, title, poster_path, overview}) => {
-    if (watchList.current.some(movies => movies.id === id)){
+  const addTo = async ({id, title}) => {
+    if (watchList.current.some(movie => movie === id)){
       setError('Movie already on your watch list!')
       setTimeout(()=>{
           setError('')
@@ -97,15 +97,9 @@ const Browse = () => {
       }, 3000)
       return
     }
-    watchList.current = ([...watchList.current, {
-      id: id,
-      title: title,
-      poster_path: poster_path,
-      overview: overview
-    }])
+    watchList.current = ([...watchList.current, id])
     
     try{
-        console.log(docRef)
         setError("")
         const docRef= await firebase
         .firestore()
@@ -117,6 +111,7 @@ const Browse = () => {
             setNotification('')
         }, 3000)
     }catch(e){
+      console.log(e)
       setError("Failed to add movie")
       setTimeout(()=>{
         setError("")
