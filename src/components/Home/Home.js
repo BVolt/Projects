@@ -4,7 +4,7 @@ import {Authorization} from '../Authentication/Authorization'
 import {Link, useNavigate} from 'react-router-dom'
 import './Home.css'
 import Footer from '../Footer/Footer'
-import watchSnap from '../../assets/watchSnap.jpg'
+import watchSnap from '../../assets/watchSnap.png'
 
 
 //This is the Home Page Components

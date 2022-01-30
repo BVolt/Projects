@@ -10,7 +10,7 @@ const Footer = () => {
                 <div className="col">
                     <h4>More of My Projects</h4>
                     <ul className="list unstyled">
-                        <li>Source: <a href="https://github.com/BVolt/watch-list">https://github.com/BVolt</a></li>
+                        <li>Github: <a href="https://github.com/BVolt">https://github.com/BVolt</a></li>
                         <li>Portfolio: <a href=""></a></li>
                     </ul>
                 </div>

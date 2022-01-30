@@ -83,9 +83,15 @@ const Browse = () => {
 
   //adds the movies that is clicked to the current users watch list
   const addTo = async ({ id, title, poster_path, overview}) => {
-
     if (watchList.current.some(movies => movies.id === id)){
       setError('Movie already on your watch list!')
+      setTimeout(()=>{
+          setError('')
+      }, 3000)
+      return
+    }
+    if (watchList.current.length === 20){
+      setError('No more than 20 movies can be on your watchlist')
       setTimeout(()=>{
           setError('')
       }, 3000)
