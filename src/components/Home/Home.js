@@ -23,7 +23,7 @@ const Home = () => {
             </div>
             <div className="home-card">
                 <h3>Description</h3>
-                    <p>In this application, you can browse from a selection of movies and view their posters, titles, and descriptions. Then the user may create a watch list from the selection. To use these features create an account or use the test account below. </p>
+                    <p>In this application, you can browse from a selection of movies and view their posters, titles, and descriptions. Then the user may create a watch list from the selection. To use these features create an account or use the test account below. The source code and technical information for this project can be found <a href="https://github.com/BVolt/watch-list">here</a>. </p>
                 <h3>Qualifications</h3>
                 <p>Watch List is for demonstration purposes only and is not for meant for any commercial uses. I cannot gauruntee the safety of Google's firebase when handling personal emails; therefore, my recommendation if testing authentication functionality is to use either a temporarily generated or made up email.</p>
                 <h3>API Credit</h3>
