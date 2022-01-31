@@ -5,7 +5,7 @@ body{
     background: linear-gradient(to right, teal, rgb(0, 255, 200), #22254b);
 }
 
-.btn-dark{
+.btn-dark, .btn-danger{
   margin: 6px;
 }
 

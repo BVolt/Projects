@@ -1,6 +1,7 @@
 import React, {useContext,useRef, useState} from 'react'
 import {Button, Alert} from 'react-bootstrap'
 import {Authorization} from './Authorization'
+import firebase from 'firebase/app'
 import { Link, useNavigate } from "react-router-dom"
 import './auth.css'
 
@@ -12,6 +13,7 @@ export function Update() {
     const {currentUser, updateEmail, updatePassword, deleteAccount} = useContext(Authorization)
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
+    const [del, setDel] = useState(false)
     const history = useNavigate()
 
   //On sumbit change the values of the users email and/or password using our authorization context
@@ -41,9 +43,17 @@ export function Update() {
     })
   }
 
-  // function deleteAcc(){
-
-  // }
+  async function deleteAcc(){
+    setLoading(true)
+    setError('')
+    try{
+      await firebase.firestore()
+      .collection("Lists").doc(`${currentUser.email}`).delete()
+      deleteAccount()
+    }catch(err){
+      setError('Could not delete account')
+    }
+  }
 
   //Return Jsx for form structure.
   return (
@@ -52,6 +62,9 @@ export function Update() {
         <div className="auth-form">
           <h2 className="text-center mb-4">Update Profile</h2>
           {error && <Alert variant="danger">{error}</Alert>}
+          {del && <Alert variant="danger">Are you sure you want to delete your account?</Alert>}
+          {del && <Button className="btn-danger" onClick={deleteAcc}>Delete</Button>}
+          {del && <Button className="btn-dark" onClick={()=>setDel(false)}>Cancel</Button>}
           <form onSubmit={handleSubmit}>
             <label>Email</label>
             <input className="auth-inputs" type="email" ref={email} required defaultValue={currentUser.email}/>
@@ -64,9 +77,11 @@ export function Update() {
             </Button>
           </form>
           <div className="w-100 text-center mt-2">
-            {/* <Button disabled={loading} className="w-100 btn-danger" onClick={deleteAcc}>
+            {!del &&
+            <Button disabled={loading} className="w-100 btn-danger" onClick={()=>setDel(true)}>
               Delete Profile
-            </Button> */}
+            </Button>
+            } 
             <Link to="/">Cancel</Link>
           </div>
         </div>

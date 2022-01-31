@@ -11,7 +11,7 @@ const Footer = () => {
                     <h4>More of My Projects</h4>
                     <ul className="list unstyled">
                         <li>Github: <a href="https://github.com/BVolt">https://github.com/BVolt</a></li>
-                        <li>Portfolio: <a href=""></a></li>
+                        <li>Portfolio: <a href="https://bjohnson-portfolio.netlify.app/">https://bjohnson-portfolio.netlify.app/</a></li>
                     </ul>
                 </div>
                 <div className="col">

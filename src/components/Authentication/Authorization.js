@@ -52,7 +52,8 @@ export function AuthorityProv({ children }) {
         updateEmail, 
         currentUser, 
         login, 
-        updatePassword
+        updatePassword,
+        deleteAccount
       }}>
       {!loading && children}
     </Authorization.Provider>
