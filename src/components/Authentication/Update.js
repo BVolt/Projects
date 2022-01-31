@@ -77,7 +77,7 @@ export function Update() {
             </Button>
           </form>
           <div className="w-100 text-center mt-2">
-            {!del &&
+            {(currentUser.email !== 'user@test.com')&& !del &&
             <Button disabled={loading} className="w-100 btn-danger" onClick={()=>setDel(true)}>
               Delete Profile
             </Button>
